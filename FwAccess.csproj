@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{313485F0-6BD2-48E8-8EF6-FA8BD3BCC024}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>FwAccess</RootNamespace>
+    <AssemblyName>FwAccess</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Externalconsole>true</Externalconsole>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="FDO">
+      <HintPath>..\..\fwrepo\fw\Output_x86_64\Debug\FDO.dll</HintPath>
+    </Reference>
+    <Reference Include="BasicUtils">
+      <HintPath>..\..\fwrepo\fw\Output_x86_64\Debug\BasicUtils.dll</HintPath>
+    </Reference>
+    <Reference Include="CoreImpl">
+      <HintPath>..\..\fwrepo\fw\Output_x86_64\Debug\CoreImpl.dll</HintPath>
+    </Reference>
+    <Reference Include="COMInterfaces">
+      <HintPath>..\..\fwrepo\fw\Output_x86_64\Debug\COMInterfaces.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="FwAccess.cs" />
+    <Compile Include="ConsoleFdoUi.cs" />
+    <Compile Include="ProjectIdentifier.cs" />
+    <Compile Include="FdoDirectories.cs" />
+    <Compile Include="ThreadedProgress.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <None Include="..\..\fwrepo\fw\Output_x86_64\Debug\CoreImpl.dll.config">
+      <Link>CoreImpl.dll.config</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\fwrepo\fw\Output_x86_64\Debug\FDO.dll.config">
+      <Link>FDO.dll.config</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+</Project>
